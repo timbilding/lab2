@@ -17,7 +17,7 @@ namespace lab2
             Console.WriteLine("Введите ключевое слово для поиска:");
             string WordSearch = Console.ReadLine();
 
-            string[] files = Directory.GetFiles(Folder, "*", SearchOption.AllDirectories);
+            string[] files = Directory.GetFiles(Folder);
 
             Console.WriteLine("Результаты поиска:");
 
@@ -25,7 +25,7 @@ namespace lab2
             {
                 string fileName = Path.GetFileName(file);
 
-                if (fileName.Contains(WordSearch))
+                if (fileName.IndexOf(WordSearch, StringComparison.OrdinalIgnoreCase) >= 0)
                 {
                     Console.WriteLine(fileName);
                 }
